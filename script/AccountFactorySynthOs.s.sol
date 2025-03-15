@@ -3,10 +3,11 @@ pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
 import {AccountFactorySynthOs} from "../src/AccountFactorySynthOs.sol";
+import "@thirdweb/contracts/prebuilts/account/interface/IEntrypoint.sol";
 
 contract AccountFactorySynthOsScript is Script {
     AccountFactorySynthOs public accountFactorySynthOs;
-
+    IEntryPoint public IentryPoint;
     function setUp() public {}
 
     function run() public {
@@ -14,9 +15,9 @@ contract AccountFactorySynthOsScript is Script {
         vm.startBroadcast(deployerPrivateKey);
 
         address defaultAdmin = 0x34553Be327C085AfD43bbc3Fc1681FfC3CC9287A;
-        address entryPoint = 0x5ff137d4b0fdcd49dca30c7cf57e578a026d2789;
-
-        accountFactorySynthOs = new AccountFactorySynthOs(defaultAdmin, entryPoint);
+        address entryPoint = 0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789;
+        IentryPoint = IEntryPoint(entryPoint);
+        accountFactorySynthOs = new AccountFactorySynthOs(defaultAdmin, IentryPoint);
 
         address policyCordinator = 0x0000000000000000000000000000000000000000;
         accountFactorySynthOs.setPolicyCordinator(policyCordinator);

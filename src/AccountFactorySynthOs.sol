@@ -14,7 +14,7 @@ import "@thirdweb/contracts/extension/upgradeable/ContractMetadata.sol";
 import "@thirdweb/contracts/prebuilts/account/interface/IEntrypoint.sol";
 
 // Smart wallet implementation
-import { Account } from "@thirdweb/contracts/prebuilts/account/non-upgradeable/Account.sol";
+import { Account } from "./Account.sol";
 
 //   $$\     $$\       $$\                 $$\                         $$\
 //   $$ |    $$ |      \__|                $$ |                        $$ |
@@ -25,7 +25,7 @@ import { Account } from "@thirdweb/contracts/prebuilts/account/non-upgradeable/A
 //   \$$$$  |$$ |  $$ |$$ |$$ |      \$$$$$$$ |\$$$$$\$$$$  |\$$$$$$$\ $$$$$$$  |
 //    \____/ \__|  \__|\__|\__|       \_______| \_____\____/  \_______|\_______/
 
-contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnumerable {
+contract AccountFactorySynthOs is BaseAccountFactory, ContractMetadata, PermissionsEnumerable {
     /*///////////////////////////////////////////////////////////////
                             Constructor
     //////////////////////////////////////////////////////////////*/
